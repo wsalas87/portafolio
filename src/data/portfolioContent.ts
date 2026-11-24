@@ -1,7 +1,5 @@
 export type CaseStudyId = "entel-ds" | "entel-docs" | "ecommerce-consultancy" | "mockup-ds";
 
-export type DrawerView = { type: "contact" };
-
 export interface CaseStudy {
   id: CaseStudyId;
   /** URL segment used by the hash route, e.g. #/casos/design-system-entel */

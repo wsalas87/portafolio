@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { BrandLogo } from "./BrandLogo";
-import { CASE_STUDIES, caseHref, type DrawerView } from "../data/portfolioContent";
+import { CASE_STUDIES, caseHref } from "../data/portfolioContent";
 
 const imgIconsPlus = "/assets/d163c.svg";
 const imgIconsMinus = "/assets/aebc6.svg";
@@ -9,6 +9,7 @@ const imgClose = "/assets/b9d54.svg";
 
 const LINKEDIN_URL = "https://www.linkedin.com";
 const CV_URL = "/cv-wilfredo-salas.pdf";
+const CONTACT_MAILTO = "mailto:wilfredo.salas.g@gmail.com";
 
 // Shared text styles from the Figma "button" component.
 const labelText =
@@ -28,11 +29,10 @@ function Icon14({ src }: { src: string }) {
 }
 
 interface TopNavigationProps {
-  onOpenDrawer: (view: DrawerView) => void;
   onGoHome: () => void;
 }
 
-export function TopNavigation({ onOpenDrawer, onGoHome }: TopNavigationProps) {
+export function TopNavigation({ onGoHome }: TopNavigationProps) {
   const [casesOpen, setCasesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileCasesOpen, setMobileCasesOpen] = useState(false);
@@ -68,11 +68,6 @@ export function TopNavigation({ onOpenDrawer, onGoHome }: TopNavigationProps) {
   const goHome = () => {
     closeAll();
     onGoHome();
-  };
-
-  const openDrawer = (view: DrawerView) => {
-    closeAll();
-    onOpenDrawer(view);
   };
 
   return (
@@ -135,13 +130,9 @@ export function TopNavigation({ onOpenDrawer, onGoHome }: TopNavigationProps) {
             <span className={linkLabel}>Linkedin</span>
           </a>
 
-          <button
-            type="button"
-            onClick={() => openDrawer({ type: "contact" })}
-            className={primaryButton}
-          >
+          <a href={CONTACT_MAILTO} className={primaryButton}>
             Hablemos
-          </button>
+          </a>
         </nav>
       </div>
 
@@ -236,13 +227,13 @@ export function TopNavigation({ onOpenDrawer, onGoHome }: TopNavigationProps) {
           </MobileItem>
 
           <MobileItem>
-            <button
-              type="button"
-              onClick={() => openDrawer({ type: "contact" })}
+            <a
+              href={CONTACT_MAILTO}
+              onClick={() => setMobileOpen(false)}
               className={`${primaryButton} w-full`}
             >
               Hablemos
-            </button>
+            </a>
           </MobileItem>
         </nav>
       )}
