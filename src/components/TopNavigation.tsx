@@ -7,7 +7,7 @@ const imgIconsMinus = "/assets/aebc6.svg";
 const imgMenu = "/assets/730ae.svg";
 const imgClose = "/assets/b9d54.svg";
 
-const LINKEDIN_URL = "https://www.linkedin.com";
+const LINKEDIN_URL = "https://www.linkedin.com/in/wilfredosalasg/";
 const CV_URL = "/cv-wilfredo-salas.pdf";
 const CONTACT_MAILTO = "mailto:wilfredo.salas.g@gmail.com";
 
