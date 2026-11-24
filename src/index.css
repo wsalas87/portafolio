@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* Design tokens from the Figma "Portafolio" library. */
+@theme {
+  --color-gray-60: #999999;
+  --color-gray-80: #cccccc;
+  --color-pink-40: #e11c73;
+  --color-background-neutral: var(--color-gray-80);
+  --color-spinner-background: var(--color-gray-60);
+  --radius-dialog: 16px;
+}
+
+@font-face {
+  font-family: "JetBrains Mono:Bold";
+  src: url("https://static.figma.com/font/JetBrainsMono_wght__1") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono:ExtraLight";
+  src: url("https://static.figma.com/font/JetBrainsMono_wght__1") format("woff2");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto:Light";
+  src: url("https://static.figma.com/font/Roboto_wdth_wght__3") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto:Regular";
+  src: url("https://static.figma.com/font/Roboto_wdth_wght__3") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto:Medium";
+  src: url("https://static.figma.com/font/Roboto_wdth_wght__3") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono:Regular";
+  src: url("https://static.figma.com/font/RobotoMono_wght__2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #ffffff;
+    min-height: 100dvh;
+  }
+}
+
+/* Spinner: loops variants 2 → 3 → 4 → 2 (300ms smart animate, linear each step), after 1 → 2 on mount. */
+@keyframes spinner-intro {
+  from {
+    transform: rotate(0deg);
+    stroke-dasharray: 0 150.8;
+  }
+  to {
+    transform: rotate(0deg);
+    stroke-dasharray: 67.86 150.8;
+  }
+}
+
+@keyframes spinner-loop {
+  0% {
+    transform: rotate(0deg);
+    stroke-dasharray: 67.86 150.8;
+  }
+  33.333% {
+    transform: rotate(178deg);
+    stroke-dasharray: 60.32 150.8;
+  }
+  66.667% {
+    transform: rotate(291deg);
+    stroke-dasharray: 60.32 150.8;
+  }
+  100% {
+    transform: rotate(360deg);
+    stroke-dasharray: 67.86 150.8;
+  }
+}
+
+.spinner-arc {
+  transform-box: view-box;
+  transform-origin: center;
+  animation:
+    spinner-intro 0.3s linear,
+    spinner-loop 0.9s linear 0.3s infinite;
+}

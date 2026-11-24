@@ -1,0 +1,15 @@
+{
+  "title": "Wilfredo Salas - Product Designer Design Systems",
+  "description": "Soy Wilfredo Salas, Product Designer nacido en Chile y especialista en creación, gobernanza y escalamiento de Desi",
+  "language": "es",
+  "robots": {
+    "index": false
+  },
+  "icons": {
+    "icon": "/.figma/make/favicon.png"
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
